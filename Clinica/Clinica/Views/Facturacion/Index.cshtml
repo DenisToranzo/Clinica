@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Clinica.Models.Facturacion>
+
+@{
+    ViewData["Title"] = "Facturación";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Listado de Facturación</h1>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-success">+ Crear nueva factura</a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Monto)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaFacturacion)</th>
+                <th>@Html.DisplayNameFor(model => model.EstadoPago)</th>
+                <th>@Html.DisplayNameFor(model => model.Cita)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Monto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FechaFacturacion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EstadoPago)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cita.Id)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" class="btn btn-sm btn-outline-warning" asp-route-id="@item.Id">Editar</a>
+                        <a asp-action="Details" class="btn btn-sm btn-outline-primary" asp-route-id="@item.Id">Detalles</a>
+                        <a asp-action="Delete" class="btn btn-sm btn-outline-danger" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

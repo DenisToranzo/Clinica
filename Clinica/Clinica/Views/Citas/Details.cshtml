@@ -1,0 +1,33 @@
+﻿@model Clinica.Models.Cita
+
+@{
+    ViewData["Title"] = "Detalles de la Cita";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Detalles de la Cita</h1>
+
+    <div class="border p-4 rounded shadow-sm bg-light">
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.FechaCita)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaCita)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Motivo)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Motivo)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Estado)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Medico)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Medico.Nombre) @Html.DisplayFor(model => model.Medico.Apellido)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Paciente)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Paciente.Nombre) @Html.DisplayFor(model => model.Paciente.Apellido)</dd>
+        </dl>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+        </div>
+    </div>
+</div>

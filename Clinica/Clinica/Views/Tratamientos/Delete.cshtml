@@ -1,0 +1,39 @@
+﻿@model Clinica.Models.Tratamiento
+
+@{
+    ViewData["Title"] = "Eliminar Tratamiento";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-danger mb-4">Eliminar Tratamiento</h1>
+
+    <h3 class="text-center">¿Está seguro de que desea eliminar esto?</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4 class="text-primary">Tratamiento</h4>
+            <hr />
+            <dl class="row mb-4">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Cita)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Cita.Id)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete" class="d-flex justify-content-between">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+            </form>
+        </div>
+    </div>
+</div>
+

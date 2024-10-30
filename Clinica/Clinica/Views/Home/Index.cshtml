@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-color: #f0f8ff; /* Color de fondo suave */
+        font-family: 'Arial', sans-serif;
+    }
+
+    .header {
+        background-color: #004085; /* Color del encabezado */
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .content {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+        .content h1 {
+            font-size: 3rem;
+            color: #004085; /* Color del título */
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: #333; /* Color del texto */
+        }
+
+    .btn-custom {
+        background-color: #28a745; /* Botón verde */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+        .btn-custom:hover {
+            background-color: #218838; /* Color del botón en hover */
+        }
+
+    .button-container {
+        display: flex;
+        justify-content: center; /* Centra los botones en el contenedor */
+        margin-top: 20px; /* Espaciado superior */
+    }
+
+    .btn-custom {
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 10px; /* Espaciado entre botones */
+    }
+
+    .btn-cita {
+        background-color: #28a745; /* Verde para Registrar Cita */
+    }
+
+        .btn-cita:hover {
+            background-color: #218838; /* Color en hover */
+        }
+
+    .btn-paciente {
+        background-color: #007bff; /* Azul para Registrar Paciente */
+    }
+
+        .btn-paciente:hover {
+            background-color: #0069d9; /* Color en hover */
+        }
+
+    .btn-medico {
+        background-color: #ffa200; /* Rojo para Registrar Médico */
+    }
+
+        .btn-medico:hover {
+            background-color: #ffa200; /* Color en hover */
+        }
+</style>
+
+<div class="header">
+    <h1 class="display-4">Bienvenido a Nuestra Clínica</h1>
+</div>
+
+<div class="content">
+    <p>Comprometidos con su salud y bienestar.</p>
+    <div class="button-container">
+        <a href="@Url.Action("Create", "Citas")" class="btn-custom btn-cita">Registrar Cita</a>
+        <a href="@Url.Action("Create", "Pacientes")" class="btn-custom btn-paciente">Registrar Paciente</a>
+        <a href="@Url.Action("Create", "Medicos")" class="btn-custom btn-medico">Registrar Médico</a>
+    </div>
+</div>
+
+

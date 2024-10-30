@@ -1,0 +1,56 @@
+﻿@model Clinica.Models.Cita
+
+@{
+    ViewData["Title"] = "Crear Cita";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Crear Nueva Cita</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create" class="p-4 border rounded shadow-sm bg-light">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="FechaCita" class="form-label"></label>
+                    <input asp-for="FechaCita" class="form-control" />
+                    <span asp-validation-for="FechaCita" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Motivo" class="form-label"></label>
+                    <input asp-for="Motivo" class="form-control" />
+                    <span asp-validation-for="Motivo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Estado" class="form-label"></label>
+                    <select asp-for="Estado" class="form-select" asp-items="ViewBag.Estado"></select>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PacienteId" class="form-label"></label>
+                    <select asp-for="PacienteId" class="form-select" asp-items="ViewBag.PacienteId"></select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="MedicoId" class="form-label"></label>
+                    <select asp-for="MedicoId" class="form-select" asp-items="ViewBag.MedicoId"></select>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

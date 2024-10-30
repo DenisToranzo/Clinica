@@ -1,0 +1,59 @@
+﻿@model Clinica.Models.Facturacion
+
+@{
+    ViewData["Title"] = "Editar Facturación";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Editar Facturación</h1>
+
+    <h4>Facturación</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="CitaId" class="control-label"></label>
+                    <select asp-for="CitaId" class="form-control" asp-items="ViewBag.CitaId"></select>
+                    <span asp-validation-for="CitaId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Monto" class="control-label"></label>
+                    <input asp-for="Monto" class="form-control" />
+                    <span asp-validation-for="Monto" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FechaFacturacion" class="control-label"></label>
+                    <input asp-for="FechaFacturacion" class="form-control" />
+                    <span asp-validation-for="FechaFacturacion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EstadoPago" class="control-label"></label>
+                    <input asp-for="EstadoPago" class="form-control" />
+                    <span asp-validation-for="EstadoPago" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

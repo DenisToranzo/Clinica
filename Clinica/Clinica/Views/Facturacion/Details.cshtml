@@ -1,0 +1,45 @@
+﻿@model Clinica.Models.Facturacion
+
+@{
+    ViewData["Title"] = "Detalles de Facturación";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Detalles de Facturación</h1>
+
+    <div>
+        <h4>Facturación</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Monto)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Monto)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FechaFacturacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaFacturacion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EstadoPago)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EstadoPago)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cita)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cita.Id)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+    </div>
+</div>

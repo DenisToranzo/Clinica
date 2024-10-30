@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Clinica.Models.Medico>
+
+@{
+    ViewData["Title"] = "Listado de Médicos";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Listado de Médicos</h1>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-success">+ Agregar médico</a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.Especialidad)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaContratacion)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Especialidad)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FechaContratacion)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" class="btn btn-sm btn-outline-warning" asp-route-id="@item.Id">Editar</a>
+                        <a asp-action="Details" class="btn btn-sm btn-outline-primary" asp-route-id="@item.Id">Detalles</a>
+                        <a asp-action="Delete" class="btn btn-sm btn-outline-danger" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

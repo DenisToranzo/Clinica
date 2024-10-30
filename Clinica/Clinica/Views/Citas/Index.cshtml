@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Clinica.Models.Cita>
+
+@{
+    ViewData["Title"] = "Citas";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Listado de Citas</h1>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-success">+ Crear nueva cita</a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FechaCita)</th>
+                <th>@Html.DisplayNameFor(model => model.Motivo)</th>
+                <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                <th>@Html.DisplayNameFor(model => model.Medico)</th>
+                <th>@Html.DisplayNameFor(model => model.Paciente)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="@(item.Estado == "Disponible" ? "table-success" : item.Estado == "En proceso" ? "table-warning" : "table-danger text-white")">
+                    <td>@Html.DisplayFor(modelItem => item.FechaCita)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Motivo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Medico.Nombre) @Html.DisplayFor(modelItem => item.Medico.Apellido)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Paciente.Nombre) @Html.DisplayFor(modelItem => item.Paciente.Apellido)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" class="btn btn-sm btn-outline-warning" asp-route-id="@item.Id">Editar</a>
+                        <a asp-action="Details" class="btn btn-sm btn-outline-primary" asp-route-id="@item.Id">Detalles</a>
+                        <a asp-action="Delete" class="btn btn-sm btn-outline-danger" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

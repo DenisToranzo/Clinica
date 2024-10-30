@@ -1,0 +1,36 @@
+﻿@model Clinica.Models.Cita
+
+@{
+    ViewData["Title"] = "Eliminar Cita";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-danger mb-4">Eliminar Cita</h1>
+    <h3 class="text-center">¿Estás seguro de que deseas eliminar esta cita?</h3>
+
+    <div class="border p-4 rounded shadow-sm bg-light mt-4">
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaCita)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaCita)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Motivo)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Motivo)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Estado)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Medico)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Medico.Nombre) @Html.DisplayFor(model => model.Medico.Apellido)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Paciente)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Paciente.Nombre) @Html.DisplayFor(model => model.Paciente.Apellido)</dd>
+        </dl>
+
+        <form asp-action="Delete" class="d-flex justify-content-between mt-4">
+            <input type="hidden" asp-for="Id" />
+            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+        </form>
+    </div>
+</div>
+
